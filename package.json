@@ -6,6 +6,8 @@
 	"dependencies": {
 		"ajv": "^6.5.0",
 		"axios": "^0.18.0",
-		"nuxt": "^1.4.0"
+		"nuxt": "^1.4.0",
+		"iview": "^2.14.0-rc.1",
+		"iview-loader": "^1.1.0"
 	}
 }
