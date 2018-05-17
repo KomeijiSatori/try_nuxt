@@ -1,6 +1,6 @@
 module.exports = {
     build: {
-        vendor: ['axios', '~/plugins/iview']
+        vendor: ['~/plugins/iview']
     },
     plugins: ['~/plugins/iview'],
     css: [
@@ -15,6 +15,17 @@ module.exports = {
                 prefix: false
             }
         })
+    },
+    modules: [
+        '@nuxtjs/axios',
+        '@nuxtjs/proxy',
+    ],
+    axios: {
+        browserBaseURL: 'http://chongliu.me:8888',
+        //https: true,
+    },
+    proxy: {
+        "/api": "https://chongliu.me",
     },
     loading: { color: '#3B8070' },
 }

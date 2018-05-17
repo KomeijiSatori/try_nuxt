@@ -4,10 +4,12 @@
 		"dev": "nuxt"
 	},
 	"dependencies": {
+		"@nuxtjs/axios": "^5.3.1",
+		"@nuxtjs/proxy": "^1.2.4",
 		"ajv": "^6.5.0",
 		"axios": "^0.18.0",
-		"nuxt": "^1.4.0",
 		"iview": "^2.14.0-rc.1",
-		"iview-loader": "^1.1.0"
+		"iview-loader": "^1.1.0",
+		"nuxt": "^1.4.0"
 	}
 }

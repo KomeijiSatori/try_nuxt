@@ -20,11 +20,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-    async asyncData ({ params }) {
-        let { data } = await axios.get(`/api/blogs/`);
+    async asyncData ({ app }) {
+        let data = await app.$axios.$get(`/api/blogs/`);
         return { blogs: data }
     },
 

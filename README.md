@@ -1,6 +1,6 @@
 ## Nuxt expirements here
 
-#### Install
+### Install
 1. npm install
 
 ### Start the project
@@ -10,12 +10,15 @@
 1. install nginx
 2. add the following code to the `http {}` section in nginx.conf
 ```
+map $sent_http_content_type $expires {
+    "text/html"                 epoch;
+    "text/html; charset=utf-8"  epoch;
+    default                     off;
+}
+
 server {
-    listen       80;
+    listen       8888;
     server_name  localhost;
-    location /api {
-        proxy_pass                         https://chongliu.me/api;
-    }
 
     location / {
         expires $expires;
@@ -30,3 +33,10 @@ server {
     }
 }
 ```
+
+### Modify nuxt.config.js
+1. set the browserBaseURL to `${HOST}:8888`. If it is on your local machine, HOST is 127.0.0.1, others may be your domain name
+
+### Visit the site
+visit ${HOST}:8888 to see the results
+

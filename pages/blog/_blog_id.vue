@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="is_login">
-            <h>Hello, {{ name }}, you are login with token {{ token }}</h>
+            <h1>Hello, {{ name }}, you are login with token {{ token }}</h1>
             <Button type="error" @click="handleLogout()" style="margin-left: 8px">登出</Button>
         </div>
         <div>
@@ -24,15 +24,12 @@ import axios from 'axios';
 import { mapState } from 'vuex'
 
 export default {
-    async asyncData({ params, error }) {
+    async asyncData({ params, app, error }) {
         // Default data
         try {
-            let url = `/api/blogs/archive/${params.blog_id}/`;
-            console.log(url);
-            let { data } = await axios.get(url);
+            let data = await app.$axios.$get(`/api/blogs/archive/${params.blog_id}/`);
             return { blog: data };
         } catch (err) {
-            console.log(err);
             return error({ statusCode: 500, message: "GG" });
         }
     },
